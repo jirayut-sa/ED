@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คลังข้อสอบและสรุป ป.โท บริหารการศึกษา (อ.จรัส)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+            background-color: #f8fafc; 
+            color: #1e293b;
+        }
+        .tab-btn { transition: all 0.2s ease; }
+        .tab-active { 
+            border-bottom: 4px solid #0369a1; 
+            color: #0369a1; 
+            font-weight: 700; 
+            background-color: #f0f9ff;
+        }
+        .tab-inactive { color: #64748b; background-color: #ffffff; }
+        .tab-inactive:hover { color: #0284c7; background-color: #f8fafc; }
+        .card { transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .correct-answer { background-color: #dcfce7; border-color: #22c55e; }
+        .wrong-answer { background-color: #fee2e2; border-color: #ef4444; }
+    </style>
+</head>
+<body>
+
+    <header class="bg-gradient-to-r from-sky-800 to-blue-900 text-white p-6 md:p-10 shadow-lg">
+        <div class="max-w-6xl mx-auto">
+            <div class="inline-block px-3 py-1 bg-sky-200 text-sky-900 rounded-full text-sm font-bold mb-3">
+                รหัสวิชา 905-502
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">หลักการและทฤษฎีการบริหารการศึกษา</h1>
+            <p class="text-lg text-sky-100">สรุปเนื้อหา วิเคราะห์ข้อสอบ และแบบฝึกหัด (บรรยายโดย อ.จรัส)</p>
+        </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto mt-6 bg-white rounded-t-2xl shadow-sm overflow-hidden border border-gray-200">
+        <div class="flex flex-col md:flex-row border-b border-gray-200">
+            <button onclick="switchTab('summary')" id="btn-summary" class="tab-btn flex-1 py-4 px-6 text-center tab-active focus:outline-none text-lg">
+                📚 1. สรุปเนื้อหาสำคัญ
+            </button>
+            <button onclick="switchTab('analysis')" id="btn-analysis" class="tab-btn flex-1 py-4 px-6 text-center tab-inactive focus:outline-none text-lg border-t md:border-t-0 md:border-l border-gray-200">
+                🎯 2. วิเคราะห์แนวข้อสอบ
+            </button>
+            <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn flex-1 py-4 px-6 text-center tab-inactive focus:outline-none text-lg border-t md:border-t-0 md:border-l border-gray-200">
+                📝 3. ฝึกทำแบบทดสอบ (Simulation)
+            </button>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto bg-white p-6 md:p-10 shadow-lg rounded-b-2xl mb-12 min-h-[700px] border border-t-0 border-gray-200">
+        
+        <!-- TAB 1: SUMMARY -->
+        <div id="section-summary" class="block animate-fade-in">
+            <h2 class="text-2xl font-bold text-sky-900 border-b-2 border-sky-100 pb-2 mb-6">สรุปเนื้อหาฉบับ "จำง่าย นำไปใช้วิเคราะห์ได้"</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Group 1 -->
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                        <span class="text-2xl mr-2">📌</span> 1. หลักการบริหารเบื้องต้น
+                    </h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li><strong>หน้าที่ทางการบริหาร (Functions) ที่สำคัญ 4 ประการ:</strong>
+                            <ul class="list-circle pl-5 mt-1 text-sm">
+                                <li><span class="text-sky-700 font-semibold">Planning (วางแผน):</span> ตอนนี้อยู่ไหน? อนาคตจะเป็นอะไร? ทำอย่างไร?</li>
+                                <li><span class="text-sky-700 font-semibold">Organizing (จัดองค์การ):</span> แบ่งงาน จัดคน</li>
+                                <li><span class="text-sky-700 font-semibold">Controlling (ควบคุม):</span> ให้เป็นไปตามแผน</li>
+                                <li><span class="text-sky-700 font-semibold">Leading (นำ):</span> นำทาง นิเทศติดตาม</li>
+                            </ul>
+                        </li>
+                        <li><strong>ทฤษฎีดั้งเดิม (Classical):</strong> 
+                            <ul class="list-circle pl-5 mt-1 text-sm">
+                                <li><span class="text-red-600 font-semibold">F.W. Taylor:</span> บิดา Scientific Management (มีหลักเกณฑ์)</li>
+                                <li><span class="text-red-600 font-semibold">H. Fayol:</span> บิดาทฤษฎีทางการบริหาร</li>
+                                <li><strong>จุดเด่นยุคดั้งเดิม:</strong> เน้นงาน (ปัจจัยการผลิต) > คน, เน้นสั่งการ, ควบคุม</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Group 2 -->
+                <div class="card bg-blue-50 p-6 rounded-xl border border-blue-200">
+                    <h3 class="text-xl font-bold text-blue-900 mb-3 flex items-center">
+                        <span class="text-2xl mr-2">🧠</span> 2. ทฤษฎีพฤติกรรมศาสตร์ (ออกสอบบ่อย!)
+                    </h3>
+                    <ul class="list-none space-y-4 text-gray-700">
+                        <li class="bg-white p-3 rounded shadow-sm">
+                            <strong class="text-blue-700">1. ทฤษฎีวุฒิภาวะ (Chris Argyris):</strong><br>
+                            <span class="text-sm">คนพัฒนาจาก <strong>พึ่งพาผู้อื่น (เด็ก) ➔ พึ่งพาตนเอง/เป็นอิสระ (ผู้ใหญ่)</strong><br>
+                            <span class="text-red-500 font-semibold">การประยุกต์:</span> ถ้าผู้บริหารไปจู้จี้สั่งการคนเก่ง (ทำเหมือนเขาเป็นเด็ก) เขาจะต่อต้านและเฉื่อยชา ควรให้เขาตัดสินใจเอง</span>
+                        </li>
+                        <li class="bg-white p-3 rounded shadow-sm">
+                            <strong class="text-blue-700">2. Johari Window (Luft & Ingham):</strong><br>
+                            <span class="text-sm">การรู้จักตนเอง 4 พื้นที่: เปิด, บอด, ซ่อนเร้น, ไม่รู้<br>
+                            <span class="text-red-500 font-semibold">การประยุกต์:</span> ขยาย "พื้นที่เปิด" (Open Area) โดยการรับ Feedback และเปิดเผยข้อมูล เพื่อสร้างความไว้ใจ</span>
+                        </li>
+                        <li class="bg-white p-3 rounded shadow-sm">
+                            <strong class="text-blue-700">3. Theory X & Y (McGregor):</strong><br>
+                            <span class="text-sm"><strong>X:</strong> มองคนขี้เกียจ ต้องสั่ง ต้องคุม (สั่ง-คุม-ลงโทษ)<br>
+                            <strong>Y:</strong> มองคนรับผิดชอบได้ มีศักยภาพ (เชื่อใจ-กระจายอำนาจ)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Group 3 -->
+                <div class="card bg-indigo-50 p-6 rounded-xl border border-indigo-200 md:col-span-2">
+                    <h3 class="text-xl font-bold text-indigo-900 mb-3 flex items-center">
+                        <span class="text-2xl mr-2">⚙️</span> 3. เครื่องมือบริหารสมัยใหม่ (จำคีย์เวิร์ดจับคู่)
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                            <h4 class="font-bold text-indigo-700">Balanced Scorecard (BSC)</h4>
+                            <p class="text-sm">ประเมินผลสมดุล 4 มิติ: <br>1. การเงิน 2. ลูกค้า/ผู้รับบริการ <br>3. กระบวนการภายใน 4. การเรียนรู้และพัฒนา<br>
+                            <span class="text-red-500 text-xs">คีย์เวิร์ด: 4 มิติ, ไม่มองแค่การเงิน</span></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-indigo-700">Benchmarking</h4>
+                            <p class="text-sm">การเทียบเคียงเพื่อพัฒนา หาองค์กรที่เก่งกว่าเป็น "ต้นแบบ" หาช่องว่าง (Gap) แล้วนำมาปรับใช้ (ไม่ใช่ลอกเลียนแบบ)<br>
+                            <span class="text-red-500 text-xs">คีย์เวิร์ด: Best Practice, ต้นแบบ, หาช่องว่าง</span></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-300">
+                            <h4 class="font-bold text-indigo-700">Total Quality Management (TQM)</h4>
+                            <p class="text-sm">การบริหารคุณภาพทั่วทั้งองค์กร ทุกคนมีส่วนร่วม เน้นความพึงพอใจของลูกค้า/นักเรียนเป็นหลัก<br>
+                            <span class="text-red-500 text-xs">คีย์เวิร์ด: ทุกคนมีส่วนร่วม, ลูกค้าคือพระเจ้า</span></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-200">
+                            <h4 class="font-bold text-indigo-700">Kaizen & CEO</h4>
+                            <p class="text-sm"><strong>Kaizen:</strong> ปรับปรุงงานอย่างต่อเนื่องทีละนิด ลดความสูญเปล่า<br>
+                            <strong>CEO:</strong> ผู้บริหารคิดภาพรวม ตัดสินใจเร็ว รับผิดชอบผลลัพธ์</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 4 -->
+                <div class="card bg-orange-50 p-6 rounded-xl border border-orange-200 md:col-span-2">
+                    <h3 class="text-xl font-bold text-orange-900 mb-3 flex items-center">
+                        <span class="text-2xl mr-2">🇹🇭</span> 4. แนวคิดเปรียบเทียบ (บริบทไทย)
+                    </h3>
+                    <p class="text-sm text-gray-700 mb-3 bg-white p-3 rounded">⚠️ <strong>ระวังข้อสอบหลอก:</strong> แนวคิดเหล่านี้ <u>ไม่ใช่ทฤษฎีสากล</u> (ไม่มีนักคิดชัดเจนเหมือน Argyris หรือ McGregor) แต่เป็นอุปมาอไมยที่ใช้สอนในไทย</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-2">
+                            <li><strong class="text-orange-700">ทฤษฎีเรือลอยน้ำ:</strong> น้ำคือลูกน้อง เรือคือผู้บริหาร ผู้บริหารจะอยู่ได้หรือล่ม ขึ้นอยู่กับการสนับสนุน(การพยุง)จากลูกน้อง</li>
+                            <li><strong class="text-orange-700">ทฤษฎีวัวสองตัว:</strong> การแข่งขันกระตุ้นแรงจูงใจ (วัวตัวเดียวกินหญ้าช้า มีอีกตัวมากินด้วยจะแย่งกันกิน) <br><em>*ในโรงเรียนควรประยุกต์ใช้เพื่อ "แข่งขันเชิงสร้างสรรค์ (Win-Win)" ไม่ใช่แตกแยก</em></li>
+                            <li><strong class="text-orange-700">ทฤษฎีต้นไม้จริยธรรม (ดวงเดือน พันธุมนาวิน):</strong> ปัจจัยทางจิตที่ทำให้เป็นคนดีคนเก่ง (ราก 3 - ลำต้น 5 - ผลดี)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: ANALYSIS -->
+        <div id="section-analysis" class="hidden animate-fade-in">
+            <h2 class="text-2xl font-bold text-emerald-800 border-b-2 border-emerald-100 pb-2 mb-6">วิเคราะห์เจาะลึกแนวข้อสอบ ป.โท</h2>
+            
+            <div class="space-y-8">
+                <!-- Objective Tips -->
+                <div class="bg-white border-2 border-emerald-100 rounded-xl p-6 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-emerald-500 text-white font-bold px-4 py-1 rounded-bl-lg">ปรนัย (100 ข้อ)</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-2">เทคนิคการทำข้อสอบเลือกตอบ (ปรนัย)</h3>
+                    <p class="text-gray-700 mb-4">ข้อสอบระดับ ป.โท <strong>จะไม่ถามตรงๆ ว่า "ทฤษฎีนี้คืออะไร?"</strong> แต่จะให้ <strong>"สถานการณ์ (Case)"</strong> มาแล้วถามว่าตรงกับทฤษฎีใด หรือผู้บริหารคนนี้ใช้แนวคิดใด ทริคการวิเคราะห์มีดังนี้:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-emerald-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-emerald-800 mb-2">จุดหลอกข้อที่ 1: ทฤษฎีสากล vs บริบทไทย</h4>
+                            <p>ถ้าโจทย์ถาม "ข้อใดไม่ใช่ทฤษฎี/แนวคิดที่เป็นสากล?" ให้เล็งหาคำว่า <span class="font-bold text-red-600">ทฤษฎีเรือลอยน้ำ</span> หรือ <span class="font-bold text-red-600">ทฤษฎีวัวสองตัว</span> เพราะ 2 อย่างนี้เป็นเพียงอุปมาอไมยในการเรียนการสอนของไทย</p>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-emerald-800 mb-2">จุดหลอกข้อที่ 2: Argyris vs McGregor</h4>
+                            <p>จำคีย์เวิร์ดให้แม่น:<br>
+                            - ถ้าพูดถึง <strong class="text-blue-700">"เติบโต/พึ่งพาตนเอง/ผู้บริหารมองเป็นเด็ก"</strong> = Argyris (วุฒิภาวะ)<br>
+                            - ถ้าพูดถึง <strong class="text-blue-700">"ขี้เกียจต้องคุม(X) / รับผิดชอบได้(Y)"</strong> = McGregor (X-Y)</p>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-lg md:col-span-2">
+                            <h4 class="font-bold text-emerald-800 mb-2">จุดหลอกข้อที่ 3: จับคู่เครื่องมือบริหาร (จำสูตรนี้เข้าห้องสอบ)</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>มีคำว่า "4 มิติ (การเงิน, ลูกค้า, ภายใน, เรียนรู้)" = <strong>Balanced Scorecard (BSC)</strong></li>
+                                <li>มีคำว่า "เทียบกับโรงเรียนต้นแบบ, หาช่องว่าง, Best Practice" = <strong>Benchmarking</strong></li>
+                                <li>มีคำว่า "ทุกคนมีส่วนร่วม, เน้นคุณภาพผู้รับบริการ" = <strong>TQM</strong></li>
+                                <li>มีคำว่า "ลดความสูญเปล่า, ปรับปรุงทีละนิดทุกวัน" = <strong>Kaizen</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Essay Tips -->
+                <div class="bg-white border-2 border-amber-200 rounded-xl p-6 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-amber-500 text-white font-bold px-4 py-1 rounded-bl-lg">อัตนัย (1 ข้อ)</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 mt-2">เทคนิคการทำข้อสอบเขียนตอบ (Electronic Format)</h3>
+                    <p class="text-gray-700 mb-4">อาจารย์จะให้ "สถานการณ์จำลอง (Case Study)" ของโรงเรียนที่มีปัญหามา 1 หน้ากระดาษ การตอบแบบ Electronic (พิมพ์ตอบ) ต้องพิมพ์ให้เป็นระบบ โครงสร้างการตอบเพื่อให้ได้คะแนนเต็มควรแบ่งเป็น 3 ย่อหน้า ดังนี้:</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 text-amber-800 font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1 mr-3">1</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">วิเคราะห์ปัญหาที่เกิดขึ้น (Diagnosis)</h4>
+                                <p class="text-sm text-gray-600">ดึงประเด็นจากโจทย์มาสรุปสั้นๆ ว่าเกิดอะไรขึ้น เช่น <em>"จากกรณีศึกษา ปัญหาหลักคือครูขาดแรงจูงใจและการทำงานทับซ้อนซ่อนเงื่อน เกิดจากการที่ผู้อำนวยการมีภาวะผู้นำแบบเผด็จการ..."</em></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 text-amber-800 font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1 mr-3">2</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">อ้างอิงหลักการ/ทฤษฎี (Theoretical Application) <span class="text-red-500">*จุดกอบโกยคะแนน</span></h4>
+                                <p class="text-sm text-gray-600">นำทฤษฎีมาจับให้ตรงจุด เช่น <em>"พฤติกรรมของผู้อำนวยการสอดคล้องกับ <strong>Theory X ของ McGregor</strong> ที่มองว่าครูขี้เกียจจึงต้องควบคุมอย่างใกล้ชิด นอกจากนี้ยังขัดต่อ <strong>ทฤษฎีวุฒิภาวะของ Argyris</strong> เพราะครูเป็นผู้มีวุฒิภาวะแต่ถูกปฏิบัติเสมือนเด็ก..."</em></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 text-amber-800 font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1 mr-3">3</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">เสนอแนะแนวทางแก้ไข (Recommendation)</h4>
+                                <p class="text-sm text-gray-600">เสนอทางแก้เชิงบริหารอย่างเป็นรูปธรรม เช่น <em>"ในฐานะผู้บริหาร ควรเปลี่ยนมาใช้ <strong>Theory Y</strong> มอบอำนาจการตัดสินใจ และนำเครื่องมือ <strong>TQM</strong> มาใช้ให้ครูทุกคนมีส่วนร่วมในการพัฒนาคุณภาพการศึกษา..."</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: QUIZ -->
+        <div id="section-quiz" class="hidden animate-fade-in">
+            <div class="flex justify-between items-end border-b-2 border-purple-100 pb-2 mb-6">
+                <h2 class="text-2xl font-bold text-purple-900">แบบฝึกหัดเสมือนจริง (Simulation Test)</h2>
+                <span class="text-sm font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">50 ข้อ (ปรนัย) + 1 อัตนัย</span>
+            </div>
+            
+            <p class="mb-6 text-gray-700 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                <strong>💡 คำชี้แจง:</strong> แบบทดสอบนี้คัดเลือกและสังเคราะห์หัวข้อจากเนื้อหาทั้งหมด มาจำลองเป็นข้อสอบจำนวน 50 ข้อ เพื่อให้ครอบคลุมเนื้อหาในการสอบจริง 100 ข้อ โดยเน้นโจทย์เชิงวิเคราะห์สถานการณ์ (Case-based) ตามสไตล์ ป.โท
+            </p>
+
+            <div id="quiz-container" class="space-y-6">
+                <!-- MCQs will be generated here by JS -->
+            </div>
+
+            <div class="mt-8 text-center" id="submit-quiz-container">
+                <button onclick="submitQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-10 rounded-full text-lg shadow-lg transform transition hover:scale-105">
+                    ✅ ส่งคำตอบ และดูเฉลย (ปรนัย)
+                </button>
+            </div>
+            
+            <!-- Score Display -->
+            <div id="score-display" class="hidden mt-6 p-6 text-center rounded-xl bg-purple-50 border-2 border-purple-200">
+                <h3 class="text-2xl font-bold text-purple-900 mb-2">คะแนนของคุณ</h3>
+                <div class="text-5xl font-extrabold text-purple-600 mb-3"><span id="score-number">0</span> / 50</div>
+                <p id="score-message" class="text-gray-700 font-medium"></p>
+                <button onclick="resetQuiz()" class="mt-4 text-sm text-purple-500 hover:text-purple-700 underline">ทำแบบทดสอบอีกครั้ง</button>
+            </div>
+
+            <hr class="my-10 border-gray-200">
+
+            <!-- Essay Practice -->
+            <div class="bg-white border-2 border-gray-300 rounded-xl p-6 shadow-sm">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">✍️</span> ส่วนที่ 2: ข้อสอบอัตนัย (วิเคราะห์กรณีศึกษา)
+                </h3>
+                
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                    <p class="font-bold text-gray-700 mb-2">โจทย์กรณีศึกษา:</p>
+                    <p class="text-sm text-gray-800 italic leading-relaxed">
+                        "ผู้อำนวยการโรงเรียน A เป็นคนที่ทำงานเก่งและละเอียดมาก แต่มักจะไม่ไว้ใจให้ใครทำงานสำคัญ มักจะลงมาสั่งการและตรวจงานด้วยตนเองทุกขั้นตอน แม้แต่งานของ 'หัวหน้าฝ่ายวิชาการ' ที่ทำงานมา 20 ปี ก็ยังถูกผู้อำนวยการสั่งแก้รายละเอียดเล็กๆ น้อยๆ เสมอ นอกจากนี้ ผู้อำนวยการยังมีนิสัยชอบวิจารณ์ผลงานลูกน้องในที่ประชุมอย่างตรงไปตรงมา แต่เมื่อตนเองทำผิดพลาดกลับไม่เคยยอมรับ ส่งผลให้ครูในโรงเรียนเริ่มหมดไฟ เฉื่อยชา และทำงานแค่ให้ผ่านๆ ไป ไม่กล้าเสนอความคิดสร้างสรรค์ใหม่ๆ"
+                    </p>
+                    <p class="font-bold text-gray-800 mt-3">
+                        คำถาม: ในฐานะนักศึกษาปริญญาโทสาขาบริหารการศึกษา ท่านจงวิเคราะห์พฤติกรรมของผู้อำนวยการโรงเรียน A โดยใช้ทฤษฎีพฤติกรรมศาสตร์ (อย่างน้อย 2 ทฤษฎี) และเสนอแนะแนวทางแก้ไขเพื่อฟื้นฟูบรรยากาศการทำงาน
+                    </p>
+                </div>
+
+                <textarea id="essay-answer" rows="8" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-700" placeholder="พิมพ์คำตอบเชิงวิเคราะห์ของคุณที่นี่ (ฝึกโครงสร้าง 3 ย่อหน้า: วิเคราะห์ปัญหา -> อ้างอิงทฤษฎี -> เสนอแนะ)..."></textarea>
+                
+                <div class="mt-4 flex justify-end">
+                    <button onclick="toggleEssayGuideline()" class="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-6 rounded-lg transition">
+                        ดูแนวการตอบ (Rubric)
+                    </button>
+                </div>
+
+                <div id="essay-guideline" class="hidden mt-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-r-lg">
+                    <h4 class="font-bold text-green-800 mb-3">แนวการตอบเพื่อให้ได้คะแนนเต็ม:</h4>
+                    <div class="text-sm text-gray-700 space-y-3">
+                        <p><strong>1. การวิเคราะห์ปัญหา:</strong> เกิดจากรูปแบบการบริหารแบบรวมอำนาจและขาดความไว้วางใจบุคลากร (Micromanagement) รวมถึงผู้บริหารขาดการตระหนักรู้ในตนเอง ทำให้บรรยากาศการทำงานเสีย</p>
+                        <p><strong>2. การอ้างอิงทฤษฎี (เลือก 2 ทฤษฎีจากนี้มาตอบ):</strong>
+                            <ul class="list-disc pl-5 space-y-1 mt-1">
+                                <li><strong>ทฤษฎีวุฒิภาวะ (Argyris):</strong> ผอ. ปฏิบัติต่อหัวหน้าฝ่ายวิชาการ(ผู้มีประสบการณ์และมีวุฒิภาวะ) เสมือนเป็นเด็ก (Immaturity) ที่ต้องคอยควบคุมดูแลตลอดเวลา ส่งผลให้เกิดพฤติกรรมต่อต้านและเฉื่อยชา</li>
+                                <li><strong>Theory X (McGregor):</strong> ผอ. มีสมมติฐานเชิงลบต่อครู คิดว่าครูไม่สามารถรับผิดชอบงานเองได้ จึงต้องควบคุมและสั่งการทุกขั้นตอน</li>
+                                <li><strong>Johari Window:</strong> ผอ. มี "จุดบอด (Blind Area)" กว้างมาก คือวิจารณ์คนอื่นแต่ไม่รู้ข้อเสียของตนเอง และไม่มีการเปิดรับ Feedback</li>
+                            </ul>
+                        </p>
+                        <p><strong>3. ข้อเสนอแนะ:</strong> ผอ. ควรปรับกระบวนทัศน์เป็น Theory Y มอบความไว้วางใจ กระจายอำนาจให้หัวหน้าฝ่ายวิชาการมีอิสระในการตัดสินใจ รวมถึงการยอมรับ Feedback แบบ 360 องศาเพื่อลด Blind Area ของตนเอง และอาจนำเครื่องมือสมัยใหม่ เช่น TQM มาใช้เพื่อสร้างการมีส่วนร่วม</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-800 text-center text-gray-400 p-6 text-sm">
+        ระบบพัฒนาเพื่อการศึกษาและการเตรียมสอบ ป.โท สาขาบริหารการศึกษา<br>
+        อ้างอิงเนื้อหาจากเอกสารประกอบการสอนรายวิชา 905-502 (อ.จรัส)
+    </footer>
+
+    <script>
+        const mcqData = [
+            // Section 1: Basic Principles & Classical Theories
+            {
+                q: "ตามแนวคิดของนักทฤษฎีการบริหาร หน้าที่ใดถือเป็นจุดเริ่มต้นและสำคัญที่สุดของกระบวนการบริหาร?",
+                options: ["ก. การควบคุม (Controlling)", "ข. การวางแผน (Planning)", "ค. การจัดองค์การ (Organizing)", "ง. การนำองค์กร (Leading)"],
+                ans: 1,
+                exp: "การวางแผน (Planning) คือจุดเริ่มต้นที่ต้องตอบให้ได้ว่า ปัจจุบันอยู่จุดไหน อนาคตจะเป็นอะไร และทำอย่างไรจึงจะบรรลุเป้าหมาย"
+            },
+            {
+                q: "บุคคลใดได้รับการยกย่องว่าเป็น 'บิดาแห่งการจัดการเชิงวิทยาศาสตร์' (Scientific Management)?",
+                options: ["ก. Henri Fayol", "ข. Max Weber", "ค. Frederick W. Taylor", "ง. Chris Argyris"],
+                ans: 2,
+                exp: "F.W. Taylor คือบิดา Scientific Management ส่วน Fayol คือบิดาทฤษฎีทางการบริหาร"
+            },
+            {
+                q: "ในยุคดั้งเดิม (Classical) ระบบราชการในอุดมคติของ Max Weber เน้นสิ่งใด?",
+                options: ["ก. ความยืดหยุ่นในการทำงาน", "ข. การทำงานเป็นทีมและมนุษยสัมพันธ์", "ค. กฎระเบียบที่เป็นทางการและไม่นำเรื่องส่วนตัวมาเกี่ยวข้อง (Impersonality)", "ง. การสร้างแรงจูงใจด้วยรางวัล"],
+                ans: 2,
+                exp: "Bureaucracy ของ Weber เน้นโครงสร้าง กฎระเบียบชัดเจน และ Impersonality (ไม่นำเรื่องส่วนตัวมาปะปน ไม่เล่นพรรคเล่นพวก)"
+            },
+            {
+                q: "ข้อใดคือความแตกต่างที่สำคัญที่สุดระหว่าง 'การบริหารยุคดั้งเดิม' กับ 'ทฤษฎีพฤติกรรมศาสตร์'?",
+                options: ["ก. ยุคดั้งเดิมเน้นคน พฤติกรรมศาสตร์เน้นงาน", "ข. ยุคดั้งเดิมเน้นประสิทธิภาพงานและโครงสร้าง พฤติกรรมศาสตร์เน้นจิตวิทยาและความสัมพันธ์ของมนุษย์", "ค. ยุคดั้งเดิมเน้นเครื่องมือสมัยใหม่ พฤติกรรมศาสตร์เน้นระบบราชการ", "ง. ไม่มีข้อแตกต่าง"],
+                ans: 1,
+                exp: "ยุคดั้งเดิม(Taylor, Fayol, Weber) เน้นตัวงาน โครงสร้าง สายบังคับบัญชา ส่วนยุคพฤติกรรมศาสตร์ (Argyris, McGregor) หันมาสนใจจิตวิทยาและแรงจูงใจของคน"
+            },
+            
+            // Section 2: Authority & Structure
+            {
+                q: "ความหมายของ 'อำนาจหน้าที่ (Authority)' ตามหลักการบริหารคืออะไร?",
+                options: ["ก. ความสามารถในการจูงใจคนด้วยวาทศิลป์", "ข. อำนาจที่จะสั่ง (Power to command) ให้บุคคลอื่นปฏิบัติตามเพื่อบรรลุวัตถุประสงค์", "ค. การสร้างเครือข่ายความร่วมมือ", "ง. การใช้บทลงโทษขั้นเด็ดขาด"],
+                ans: 1,
+                exp: "Authority คืออำนาจตามตำแหน่งที่ชอบธรรมในการสั่งการ (Power to command) เพื่อให้งานบรรลุเป้าหมาย"
+            },
+            {
+                q: "ทฤษฎีอำนาจหน้าที่ว่าด้วยการยอมรับ (The Acceptance Authority Concept) มีหลักการสำคัญอย่างไร?",
+                options: ["ก. อำนาจเกิดจากกฎหมายกำหนดไว้", "ข. อำนาจของผู้บริหารจะมีผลก็ต่อเมื่อผู้ใต้บังคับบัญชา 'ยอมรับ' และปฏิบัติตาม", "ค. อำนาจเกิดจากคุณธรรมของผู้บริหาร", "ง. อำนาจได้มาจากความรู้ความสามารถทางวิชาการ"],
+                ans: 1,
+                exp: "แนวคิดนี้ (ของ Chester Barnard) มองว่าคำสั่งจะไร้ผลหากผู้รับคำสั่งไม่ยอมรับ อำนาจที่แท้จริงจึงอยู่ที่การยอมรับของลูกน้อง"
+            },
+            {
+                q: "โครงสร้างองค์การแบบใดที่มีการทำงานทับซ้อนหน้าที่ และทำให้บุคลากรมี 'ผู้บังคับบัญชา 2 คน' (เช่น หัวหน้ากลุ่มสาระฯ และ หัวหน้าโครงการ)?",
+                options: ["ก. Divisional Structure", "ข. Hybrid Structure", "ค. Matrix Structure", "ง. Functional Structure"],
+                ans: 2,
+                exp: "Matrix Structure คือโครงสร้างแบบเมทริกซ์ ที่ลูกน้อง 1 คนต้องรายงานตัวต่อนาย 2 คน (สายงานปกติ และ สายงานโครงการ)"
+            },
+            {
+                q: "หากโรงเรียนมีการแบ่งโครงสร้างตามกลุ่มบริหาร (วิชาการ, งบประมาณ, บุคคล) ผสมผสานกับการแบ่งตามกลุ่มลูกค้า (ประถม, มัธยม) โครงสร้างนี้เรียกว่าอะไร?",
+                options: ["ก. Hybrid Structure", "ข. Matrix Structure", "ค. Bureaucracy", "ง. Organic Structure"],
+                ans: 0,
+                exp: "Hybrid Structure (แบบผสม) คือการนำโครงสร้างตามหน้าที่ มาผสมกับโครงสร้างตามพื้นที่หรือลูกค้าในองค์การเดียวกัน"
+            },
+
+            // Section 3: Behavioral Theories (International)
+            {
+                q: "ทฤษฎีวุฒิภาวะ (Immaturity-Maturity Theory) ของ Chris Argyris เชื่อว่าปัญหาในองค์กรส่วนใหญ่มักเกิดจากอะไร?",
+                options: ["ก. บุคลากรไม่มีความรู้", "ข. องค์กรไม่มีกฎระเบียบ", "ค. โครงสร้างและผู้บริหารไปขัดขวางพัฒนาการความเป็นผู้ใหญ่ของบุคลากร", "ง. ขาดการแข่งขันภายใน"],
+                ans: 2,
+                exp: "Argyris ระบุว่าบุคคลพัฒนาสู่ความเป็นผู้ใหญ่ แต่องค์กรมักปฏิบัติต่อพนักงานเหมือนเด็ก ทำให้เกิดการต่อต้านและเฉื่อยชา"
+            },
+            {
+                q: "สถานการณ์: ผอ.สมร สั่งให้ครูทำแผนการสอนตามรูปแบบที่ตนกำหนดทุกตัวอักษร ห้ามปรับเปลี่ยนเด็ดขาด ทำให้ครูรุ่นใหม่ที่มีความคิดสร้างสรรค์รู้สึกเบื่อหน่ายและทำงานแค่พอผ่าน พฤติกรรมของ ผอ.สมร ขัดต่อทฤษฎีใดมากที่สุด?",
+                options: ["ก. ทฤษฎีเรือลอยน้ำ", "ข. ทฤษฎีวุฒิภาวะของ Chris Argyris", "ค. Johari Window", "ง. Balanced Scorecard"],
+                ans: 1,
+                exp: "การบังคับครูเก่งๆ เหมือนเด็ก ขัดต่อทฤษฎีวุฒิภาวะ (Maturity) ของ Argyris"
+            },
+            {
+                q: "ผู้อำนวยการท่านหนึ่งมักจะมองว่า ครูในโรงเรียนชอบหลีกเลี่ยงงาน หากไม่คอยตรวจตราอย่างเข้มงวดงานจะไม่เสร็จ ผู้อำนวยการท่านนี้มีสมมติฐานตรงกับทฤษฎีใด?",
+                options: ["ก. Theory Y", "ข. Theory X", "ค. Immaturity Theory", "ง. Two Cow Theory"],
+                ans: 1,
+                exp: "Theory X ของ McGregor คือการมองคนในแง่ลบ (มองคนว่าขี้เกียจ ต้องคอยควบคุมและสั่งการ)"
+            },
+            {
+                q: "ข้อความใดอธิบายสมมติฐาน Theory Y ของ McGregor ได้ดีที่สุด?",
+                options: ["ก. มนุษย์ไม่ชอบทำงาน ต้องใช้การลงโทษ", "ข. บุคคลสามารถกำกับและรับผิดชอบตนเองได้ หากสภาพแวดล้อมเหมาะสม", "ค. คนจะเติบโตจากพึ่งพาผู้อื่นไปสู่ความเป็นอิสระ", "ง. ทัศนะต่อตนเองและผู้อื่นต้องเป็น Win-Win"],
+                ans: 1,
+                exp: "Theory Y มองคนเชิงบวก ว่าคนเราชอบทำงานและสามารถรับผิดชอบงานได้ด้วยตนเองหากมีแรงจูงใจที่ดี"
+            },
+            {
+                q: "ตามทฤษฎีหน้าต่างโจฮารี (Johari Window) การที่ผู้บริหารจัดกิจกรรม 'สะท้อนความคิด (Reflection)' ให้เพื่อนร่วมงานสามารถบอกข้อดีข้อเสียของกันและกันได้ เป็นการกระทำเพื่อลดพื้นที่ใด?",
+                options: ["ก. พื้นที่เปิด (Open Area)", "ข. พื้นที่ซ่อนเร้น (Hidden Area)", "ค. พื้นที่จุดบอด (Blind Area)", "ง. พื้นที่ไม่รู้ (Unknown Area)"],
+                ans: 2,
+                exp: "การรับ Feedback จากผู้อื่น ช่วยให้เรารู้ในสิ่งที่คนอื่นเห็นแต่เราไม่เห็น ซึ่งก็คือการลด 'จุดบอด (Blind Area)'"
+            },
+            {
+                q: "ครู A เป็นคนเงียบๆ ผู้บริหารจึงคิดว่าครู A ไม่มีศักยภาพ แต่แท้จริงแล้วครู A จบ ป.โท ด้านเทคโนโลยีและสร้างสื่อเก่งมาก ปรากฏการณ์นี้อธิบายด้วย Johari Window คือช่องใดของครู A?",
+                options: ["ก. Open Area", "ข. Blind Area", "ค. Hidden Area", "ง. Unknown Area"],
+                ans: 2,
+                exp: "ครู A รู้ตัวว่าทำได้ แต่ผู้บริหารไม่รู้ (เรารู้ คนอื่นไม่รู้) คือพื้นที่ซ่อนเร้น (Hidden Area)"
+            },
+            {
+                q: "หากผู้บริหารมี 'พื้นที่ซ่อนเร้น (Hidden Area)' มากเกินไป ควรแก้ไขด้วยวิธีใด?",
+                options: ["ก. การเปิดเผยข้อมูลบอกให้ผู้อื่นรู้ (Self-disclosure)", "ข. การรับฟังความคิดเห็น (Feedback) ให้มากขึ้น", "ค. การเพิ่มการควบคุมบุคลากร", "ง. การใช้ทฤษฎี Theory X"],
+                ans: 0,
+                exp: "วิธีลด Hidden Area คือการกระตุ้นให้เกิดการเปิดเผยตัวเอง (Self-disclosure) เพื่อให้ผู้อื่นได้รับรู้"
+            },
+            {
+                q: "ทฤษฎี OK-OK (Transactional Analysis ของ Harris) เน้นหลักการใดในการบริหารสถานศึกษา?",
+                options: ["ก. การมองคนขี้เกียจ", "ข. ทัศนะต่อตนเองและผู้อื่นในเชิงบวก (I'm OK, You're OK) นำไปสู่ผลลัพธ์แบบ Win-Win", "ค. การแบ่งหน้าต่างการรับรู้เป็น 4 บาน", "ง. การควบคุมคุณภาพทั่วทั้งองค์กร"],
+                ans: 1,
+                exp: "OK-OK คือทัศนคติเชิงบวกทั้งต่อตนเองและผู้อื่น ส่งผลให้การทำงานร่วมกันเป็นแบบพึ่งพาอาศัยและ Win-Win"
+            },
+
+            // Section 4: Thai Context & Ethics
+            {
+                q: "ข้อใด **ไม่ใช่** ทฤษฎีหรือแนวคิดที่เป็นสากลที่มีนักคิดหรือผู้พัฒนาชัดเจน (เป็นเพียงอุปมาทางการบริหารของไทย)?",
+                options: ["ก. ทฤษฎีวุฒิภาวะ (Immaturity-Maturity)", "ข. ทฤษฎีหน้าต่างโจฮารี (Johari Window)", "ค. ทฤษฎีวัวสองตัว และทฤษฎีเรือลอยน้ำ", "ง. ทฤษฎี X และ Y"],
+                ans: 2,
+                exp: "ทฤษฎีวัวสองตัว และ ทฤษฎีเรือลอยน้ำ เป็นเพียงแนวคิดเปรียบเทียบที่ใช้สอนในไทย ไม่ใช่ทฤษฎีสากลที่มีนักคิดอ้างอิงชัดเจน"
+            },
+            {
+                q: "ทฤษฎีต้นไม้จริยธรรมของอาจารย์ดวงเดือน พันธุมนาวิน แบ่งองค์ประกอบความดีเป็นอะไรบ้าง?",
+                options: ["ก. เปิด บอด ซ่อน ไม่รู้", "ข. ราก 3 - ลำต้น 5 - ผลดี", "ค. การเงิน ลูกค้า กระบวนการ เรียนรู้", "ง. ควบคุม สั่งการ แข่งขัน"],
+                ans: 1,
+                exp: "ทฤษฎีต้นไม้จริยธรรมประกอบด้วย ราก (3 อย่าง) ลำต้น (5 อย่าง) ที่ส่งผลให้เกิดพฤติกรรมที่ดี"
+            },
+            {
+                q: "ผู้บริหารที่บอกว่า 'น้ำพยุงเรือได้ น้ำก็ล่มเรือได้' กำลังตระหนักถึงความสำคัญของเรื่องใด?",
+                options: ["ก. การควบคุมทรัพยากร", "ข. การใช้กฎระเบียบอย่างเคร่งครัด", "ค. การได้รับการยอมรับและการสนับสนุนจากบุคลากรใต้บังคับบัญชา", "ง. การแข่งขันระหว่างสถานศึกษา"],
+                ans: 2,
+                exp: "ทฤษฎีเรือลอยน้ำ (น้ำ=ลูกน้อง, เรือ=ผู้บริหาร) สะท้อนว่าผู้บริหารจะอยู่รอดและก้าวหน้าได้ ต้องอาศัยแรงสนับสนุนจากลูกน้อง"
+            },
+            {
+                q: "การประยุกต์ใช้ 'แนวคิดวัวสองตัว' ในการบริหารสถานศึกษา ข้อใดถูกต้องที่สุด?",
+                options: ["ก. ให้ครูแข่งขันกันเพื่อเอาชนะและหาคนผิด", "ข. ให้ครูแข่งขันกันเพื่อชิงดีชิงเด่นในสายตา ผอ.", "ค. สร้างการแข่งขันเชิงสร้างสรรค์ เพื่อเกิดการเรียนรู้และพัฒนา (Win-Win)", "ง. ลงโทษครูที่ทำงานได้น้อยกว่าอีกคน"],
+                ans: 2,
+                exp: "การใช้วัวสองตัวต้องมุ่งสร้างแรงกระตุ้น แข่งขันเชิงสร้างสรรค์ (Constructive Competition) ไม่ใช่เพื่อความแตกแยก"
+            },
+
+            // Section 5: 5 Characteristics (กายดี คิดดี ธรรมดี รู้ดี วางตัวดี)
+            {
+                q: "ผู้บริหารที่แต่งกายเหมาะสมกับกาลเทศะ ท่าทางสง่างาม ยิ้มแย้ม และควบคุมอารมณ์ผ่านภาษากายได้ดี จัดเป็นคุณลักษณะเด่นในด้านใด?",
+                options: ["ก. คิดดี (Mindset)", "ข. กายดี (Personality / Professional Presence)", "ค. รู้ดี (Knowledge)", "ง. ธรรมดี (Morality)"],
+                ans: 1,
+                exp: "ปัจจัยด้านกายภาพ (กายดี) คือภาพลักษณ์ภายนอกที่ผู้อื่นสังเกตเห็นได้ ช่วยสร้างความเป็นมืออาชีพ (Professional Presence)"
+            },
+            {
+                q: "สถานการณ์: ผู้อำนวยการโรงเรียนมักจะให้ขั้นเงินเดือนพิเศษแก่ครูที่ประจบสอพลอ และไม่ค่อยเข้าสอน มากกว่าครูที่ตั้งใจสอนนักเรียนอย่างเต็มที่ ผู้อำนวยการท่านนี้ขาดคุณลักษณะใดมากที่สุด?",
+                options: ["ก. กายดี (Personality)", "ข. ธรรมดี (Morality)", "ค. รู้ดี (Knowledge)", "ง. วางตัวดี (Professional Presence)"],
+                ans: 1,
+                exp: "การประเมินอย่างไม่ยุติธรรม ขาดธรรมาภิบาลและความถูกต้อง เป็นการขาดคุณลักษณะ 'ธรรมดี' (ภูมิธรรม)"
+            },
+            {
+                q: "คุณลักษณะ 'รู้ดี (Knowledge)' ของผู้บริหารสถานศึกษา ส่งผลดีโดยตรงต่อเรื่องใดมากที่สุด?",
+                options: ["ก. ความสวยงามน่าเชื่อถือ", "ข. การตัดสินใจอย่างมีหลักการและมีวิสัยทัศน์", "ค. สุขภาพร่างกายที่แข็งแรง", "ง. การแต่งกายที่เป็นระเบียบ"],
+                ans: 1,
+                exp: "ภูมิรู้ (รู้ดี) ช่วยให้ผู้บริหารมีข้อมูลและหลักการวิชาการที่ถูกต้องในการ 'ตัดสินใจ'"
+            },
+            {
+                q: "ข้อใดคือสูตรจำ 5 ประเด็น องค์ประกอบของความพร้อมและภาพลักษณ์ของผู้บริหารสถานศึกษา?",
+                options: ["ก. กายดี – คิดดี – ทำดี – พูดดี – วางตัวดี", "ข. กายดี – คิดดี – ธรรมดี – รู้ดี – วางตัวดี", "ค. งานดี – เงินดี – คนดี – ระบบดี – สังคมดี", "ง. เก่งงาน – เก่งคน – เก่งคิด – เก่งเงิน – เก่งเทคโนโลยี"],
+                ans: 1,
+                exp: "สูตรจำคือ 'กายดี – คิดดี – ธรรมดี – รู้ดี – วางตัวดี' เมื่อรวมกันจะก่อให้เกิดความน่าเชื่อถือ"
+            },
+
+            // Section 6: 10 Mindsets of Administrators
+            {
+                q: "ผู้บริหารที่เชื่อว่า 'ครูทุกคนและองค์กรสามารถพัฒนาและเก่งขึ้นได้เสมอ' ไม่มองว่าข้อจำกัดคือจุดจบ สะท้อนถึงกรอบความคิดใด?",
+                options: ["ก. Fixed Mindset", "ข. Digital Mindset", "ค. Growth Mindset", "ง. Service Mindset"],
+                ans: 2,
+                exp: "Growth Mindset คือความเชื่อว่าคนและองค์กรสามารถพัฒนาได้ผ่านการเรียนรู้และความพยายาม"
+            },
+            {
+                q: "ในช่วงวิกฤตที่ต้องเปลี่ยนไปจัดการเรียนการสอนแบบออนไลน์ ผู้อำนวยการได้นำแพลตฟอร์มใหม่ๆ มาใช้ในการบริหารงบประมาณและสั่งการ แสดงว่าผู้อำนวยการมี Mindset ด้านใดเด่นชัด?",
+                options: ["ก. Ethical Mindset", "ข. Digital Mindset", "ค. Service Mindset", "ง. Collaborative Mindset"],
+                ans: 1,
+                exp: "Digital Mindset คือการเข้าใจและประยุกต์ใช้เทคโนโลยีได้อย่างเหมาะสมกับบริบทการทำงาน"
+            },
+            {
+                q: "ผู้บริหารที่มุ่งเน้นการให้บริการนักเรียน ครู ผู้ปกครอง และชุมชนด้วยความเต็มใจ สอดคล้องกับกรอบความคิดใด?",
+                options: ["ก. Service Mindset", "ข. Change Mindset", "ค. Strategic Mindset", "ง. Innovation Mindset"],
+                ans: 0,
+                exp: "Service Mindset คือแนวคิดที่มุ่งให้บริการและสร้างความพึงพอใจแก่ผู้มีส่วนได้ส่วนเสีย"
+            },
+            {
+                q: "ในยุคที่มีการเปลี่ยนแปลงนโยบายและเทคโนโลยีอย่างรวดเร็ว (VUCA World) ผู้บริหารสถานศึกษาจำเป็นต้องมีกรอบความคิดใดเพื่อรับมือกับความผันผวนนี้?",
+                options: ["ก. Positive Mindset", "ข. Collaborative Mindset", "ค. Change Mindset", "ง. Ethical Mindset"],
+                ans: 2,
+                exp: "Change Mindset คือความพร้อมเปิดรับและสามารถบริหารจัดการความเปลี่ยนแปลงได้อย่างมีประสิทธิภาพ"
+            },
+            {
+                q: "ผู้บริหารที่เชื่อมั่นในการทำงานเป็นทีม ดึงการมีส่วนร่วมจากทุกฝ่าย ไม่ผูกขาดอำนาจการตัดสินใจไว้คนเดียว สะท้อนถึง Mindset ใด?",
+                options: ["ก. Innovation Mindset", "ข. Learning Mindset", "ค. Strategic Mindset", "ง. Collaborative Mindset"],
+                ans: 3,
+                exp: "Collaborative Mindset คือความเชื่อในการทำงานร่วมกันเป็นทีม และเปิดโอกาสให้เกิดการมีส่วนร่วม"
+            },
+
+            // Section 7: Human Relations
+            {
+                q: "ปัจจัยพื้นฐานที่สำคัญที่สุดของการสร้าง 'มนุษยสัมพันธ์ (Human Relations)' ในการอยู่ร่วมกันคืออะไร?",
+                options: ["ก. การมีรายได้ที่เท่าเทียมกัน", "ข. การยอมรับว่ามนุษย์มีความเหมือนและความแตกต่างกัน", "ค. การมีโครงสร้างองค์กรแบบระบบราชการ", "ง. การใช้เครื่องมือเทคโนโลยีสื่อสารที่ทันสมัย"],
+                ans: 1,
+                exp: "พื้นฐานสำคัญของมนุษยสัมพันธ์คือการตระหนักว่าคนเรามีความแตกต่างกัน (ทั้งความต้องการและเป้าหมาย) เพื่อนำไปสู่การจูงใจและการประสานงานที่ถูกต้อง"
+            },
+            {
+                q: "หากท่านมีปัญหากับเพื่อนร่วมงานในเรื่องของงาน การนำความรู้ด้านมนุษยสัมพันธ์มาแก้ปัญหา ควรเริ่มต้นจากสิ่งใด?",
+                options: ["ก. ร้องเรียนผู้บังคับบัญชาทันที", "ข. หลีกเลี่ยงการพูดคุยเพื่อลดความขัดแย้ง", "ค. ทำความเข้าใจตนเอง (รู้จักตนเอง) และพยายามสื่อสารติดต่ออย่างเข้าอกเข้าใจ", "ง. ใช้การแข่งขันชิงดีชิงเด่นเพื่อเอาชนะ"],
+                ans: 2,
+                exp: "หลักการมนุษยสัมพันธ์เริ่มจากการรู้จักตนเอง การสื่อสารที่มีประสิทธิภาพ และการพยายามเข้าใจความต้องการของผู้อื่นเพื่อประสานความเข้าใจ"
+            },
+
+            // Section 8: Modern Tools (Innovation)
+            {
+                q: "โรงเรียน B นำระบบการประเมินผลที่พิจารณาทั้งด้านการเงิน, ความพึงพอใจของผู้รับบริการ, กระบวนการภายใน, และการเรียนรู้ มาปรับใช้ โรงเรียน B ใช้เครื่องมือใด?",
+                options: ["ก. TQM", "ข. Kaizen", "ค. Benchmarking", "ง. Balanced Scorecard (BSC)"],
+                ans: 3,
+                exp: "BSC คือการประเมินผลสมดุล 4 มิติ (เงิน, ลูกค้า, กระบวนการ, การเรียนรู้และพัฒนา) เพื่อแปลงกลยุทธ์สู่การปฏิบัติ"
+            },
+            {
+                q: "โรงเรียน C พบว่านักเรียนมีคะแนน O-NET ต่ำ จึงไปศึกษาดูงานที่โรงเรียนต้นแบบที่มีคะแนนสูง หาช่องว่าง (Gap) และนำกระบวนการมาปรับใช้ นี่คือกระบวนการใด?",
+                options: ["ก. Benchmarking", "ข. Theory Y", "ค. TQM", "ง. CEO Approach"],
+                ans: 0,
+                exp: "Benchmarking คือการเปรียบเทียบกับองค์กรต้นแบบ (Best Practice) วิเคราะห์ช่องว่าง และนำมาปรับปรุงพัฒนา (ไม่ใช่การลอกเลียนแบบ)"
+            },
+            {
+                q: "เป้าหมายหลักของการนำ TQM (Total Quality Management) มาใช้ในสถานศึกษาคืออะไร?",
+                options: ["ก. เพื่อหาช่องว่างเทียบกับคู่แข่ง", "ข. เพื่อประเมินผลด้านการเงิน", "ค. เพื่อพัฒนาคุณภาพอย่างต่อเนื่องโดยทุกคนมีส่วนร่วม มุ่งเน้นผู้รับบริการ", "ง. เพื่อให้ผู้บริหารตัดสินใจอย่างเด็ดขาดเพียงคนเดียว"],
+                ans: 2,
+                exp: "TQM เน้น 2 เรื่องหลักคือ คุณภาพทั่วทั้งองค์กร ทุกคนมีส่วนร่วม และมุ่งความพึงพอใจของลูกค้า(นักเรียน/ผู้ปกครอง)"
+            },
+            {
+                q: "การจัดบอร์ด 'นวัตกรรมประจำวัน' ที่ส่งเสริมให้ครูเสนอไอเดียปรับปรุงงานของตนเองเพียงเล็กๆ น้อยๆ ในทุกๆ วันเพื่อลดความสูญเปล่า ตรงกับแนวคิดใด?",
+                options: ["ก. Kaizen", "ข. BSC", "ค. Theory X", "ง. Benchmarking"],
+                ans: 0,
+                exp: "Kaizen คือการปรัปปรุงอย่างต่อเนื่อง (Continuous Improvement) ทีละเล็กทีละน้อยทุกวัน"
+            },
+            {
+                q: "แนวคิดผู้บริหารแบบ CEO (Chief Executive Officer Approach) มีลักษณะเด่นอย่างไร?",
+                options: ["ก. เน้นควบคุมรายละเอียดการทำงานทุกขั้นตอน", "ข. คิดภาพรวม บูรณาการงาน ตัดสินใจเร็ว และรับผิดชอบผลสัมฤทธิ์", "ค. มุ่งเปรียบเทียบกับคู่แข่งเพื่อทำลายคู่แข่ง", "ง. ประเมินผลเฉพาะด้านงบประมาณการเงินเท่านั้น"],
+                ans: 1,
+                exp: "CEO จะไม่ทำงานจุกจิก แต่จะนำเชิงกลยุทธ์ คิดภาพรวม บูรณาการทุกฝ่าย และรับผิดชอบต่อผลลัพธ์ขององค์กร"
+            },
+            {
+                q: "ข้อใดจับคู่ เครื่องมือนวัตกรรมการบริหาร กับ คีย์เวิร์ด ได้ถูกต้องทั้งหมด?",
+                options: ["ก. BSC = หาต้นแบบ / Kaizen = วัด 4 มิติ", "ข. TQM = ทุกคนมีส่วนร่วม / Benchmarking = เทียบเคียงต้นแบบ", "ค. CEO = ปรับปรุงทีละนิด / BSC = บูรณาการตัดสินใจ", "ง. Kaizen = เทียบช่องว่าง / TQM = รับผิดชอบผลลัพธ์"],
+                ans: 1,
+                exp: "สูตรจำ: CEO=นำ/บูรณาการ, BSC=วัด4มิติ, Benchmarking=เทียบต้นแบบ, TQM=ทุกคนมีส่วนร่วมคุมคุณภาพ, Kaizen=ปรับปรุงนิดๆทุกวัน"
+            },
+
+            // Section 9: Advanced Simulation (Case-Based)
+            {
+                q: "หากโรงเรียนพบปัญหาว่า แผนงานที่เขียนไว้ดีมากแต่นำไปปฏิบัติจริงไม่ได้ เพราะครูผู้สอนไม่ได้มีส่วนร่วมในการคิดแต่แรก ควรแก้ปัญหาด้วยเครื่องมือใดเหมาะสมที่สุด?",
+                options: ["ก. Theory X", "ข. Benchmarking", "ค. TQM (Total Quality Management)", "ง. Scientific Management"],
+                ans: 2,
+                exp: "TQM จะช่วยแก้ปัญหานี้ เพราะหัวใจของ TQM คือ 'ทุกคนในองค์กรมีส่วนร่วม' ในการพัฒนาคุณภาพ"
+            },
+            {
+                q: "เพื่อแก้ปัญหาครู A ที่เป็นคนเก่งแต่ไม่แสดงออก (พื้นที่ Hidden Area กว้าง) ผู้บริหารควรทำอย่างไร?",
+                options: ["ก. ควบคุมครู A อย่างใกล้ชิด (Theory X)", "ข. สร้างเวทีและบรรยากาศให้ครูได้เปิดเผยศักยภาพ/นำเสนอผลงาน", "ค. เปรียบเทียบครู A กับครูคนอื่นต่อหน้า (วัวสองตัวเชิงลบ)", "ง. เปลี่ยนโครงสร้างโรงเรียนเป็นระบบราชการ"],
+                ans: 1,
+                exp: "การสร้างเวทีให้แสดงออก เป็นการเปิดโอกาสให้เกิดการเปิดเผยตนเอง (Self-disclosure) ซึ่งจะช่วยลดพื้นที่ซ่อนเร้น (Hidden Area)"
+            },
+            {
+                q: "การประเมินวิทยฐานะของครูรูปแบบใหม่ ที่ครอบคลุมทั้ง ผลสัมฤทธิ์นักเรียน, การจัดการห้องเรียน, การพัฒนาตนเอง, และความคุ้มค่าของสื่อ สอดคล้องกับแนวคิดใด?",
+                options: ["ก. Kaizen", "ข. CEO", "ค. Balanced Scorecard (BSC)", "ง. Theory Y"],
+                ans: 2,
+                exp: "การประเมินที่ครอบคลุมมิติที่สมดุลกัน (ลูกค้า/นักเรียน, กระบวนการ/ห้องเรียน, เรียนรู้/พัฒนาตนเอง, การเงิน/ความคุ้มค่า) ตรงกับ BSC"
+            },
+            {
+                q: "สถานการณ์: ผอ. มอบหมายให้ครูสมชาย ซึ่งเป็นคนเก่งและมีความรับผิดชอบสูง เป็นประธานโครงการ โดยให้อิสระในการตัดสินใจเต็มที่ ผอ. ท่านนี้ใช้แนวคิดผสมผสานข้อใด?",
+                options: ["ก. Theory X และ ทฤษฎีเรือลอยน้ำ", "ข. Theory Y และ ทฤษฎีวุฒิภาวะ", "ค. TQM และ BSC", "ง. ทฤษฎีหน้าต่างโจฮารี และ Kaizen"],
+                ans: 1,
+                exp: "ให้อิสระและมอบความไว้วางใจ = มองคนเชิงบวกรับผิดชอบได้ (Theory Y) และปฏิบัติอย่างเหมาะสมกับความเป็นผู้ใหญ่ (Maturity)"
+            },
+            {
+                q: "การที่กระทรวงศึกษาธิการกำหนด 'โรงเรียนมาตรฐานสากล' เพื่อให้โรงเรียนอื่นๆ นำไปเป็นแบบอย่างในการพัฒนา ตรงกับหลักการข้อใด?",
+                options: ["ก. Balanced Scorecard", "ข. Benchmarking", "ค. Theory X", "ง. TQM"],
+                ans: 1,
+                exp: "การมีต้นแบบ (Best Practice) ให้ผู้อื่นศึกษา เปรียบเทียบ และนำมาประยุกต์ใช้ คือ Benchmarking"
+            },
+            {
+                q: "ในข้อสอบเขียนตอบ (อัตนัย) หากโจทย์ให้สถานการณ์ที่ผู้อำนวยการมีทัศนคติมองว่า 'ครูชอบหลีกเลี่ยงงาน ต้องคอยจ้ำจี้จ้ำไช' ท่านควรนำทฤษฎีใดมาใช้อ้างอิงในการวิเคราะห์พฤติกรรมนี้?",
+                options: ["ก. ทฤษฎีต้นไม้จริยธรรม", "ข. Benchmarking", "ค. Theory X ของ McGregor", "ง. ทฤษฎีวัวสองตัว"],
+                ans: 2,
+                exp: "ทัศนคติที่มองพนักงานในแง่ลบ ว่าขี้เกียจและต้องควบคุม คือหลักการพื้นฐานของ Theory X"
+            },
+            {
+                q: "สถานการณ์: ผอ.โรงเรียนแห่งหนึ่ง มีบุคลิกภาพสง่างาม พูดจาดี (กายดี) แต่เวลาบริหารงานกลับไม่มีหลักการ ชอบใช้อารมณ์ตัดสินปัญหา และเลือกที่รักมักที่ชัง ผอ.ท่านนี้สอบตกในคุณลักษณะใด?",
+                options: ["ก. ขาดทั้ง ธรรมดี และ รู้ดี", "ข. ขาดกายดี อย่างเดียว", "ค. ขาดการแต่งกายที่เหมาะสม", "ง. ขาดทฤษฎีเรือลอยน้ำ"],
+                ans: 0,
+                exp: "การใช้ความรู้สึก/อารมณ์ขาดหลักการวิชาการ คือขาด 'รู้ดี' และการเลือกที่รักมักที่ชังไม่ยุติธรรม คือขาด 'ธรรมดี'"
+            },
+            {
+                q: "การประยุกต์ใช้แนวคิด CEO ในการแก้ปัญหา 'นักเรียนอ่านไม่ออกเขียนไม่ได้' ผู้บริหารควรทำอย่างไร?",
+                options: ["ก. สั่งการให้ครูภาษาไทยรับผิดชอบไปฝ่ายเดียว", "ข. วิเคราะห์ข้อมูลภาพรวม บูรณาการทุกฝ่าย(ครู ผู้ปกครอง ชุมชน) จัดสรรทรัพยากร และติดตามผลลัพธ์", "ค. ใช้ทฤษฎีวัวสองตัวให้ครูแข่งขันกันทำผลงาน", "ง. ปล่อยให้ครูมีอิสระเต็มที่โดยไม่เข้าไปก้าวก่าย (Theory Y แบบสุดโต่ง)"],
+                ans: 1,
+                exp: "CEO จะมองปัญหาภาพรวม (Strategic Mindset) บูรณาการทรัพยากร (Integration) และเน้นที่ผลสัมฤทธิ์ปลายทาง (Result)"
+            },
+            {
+                q: "โรงเรียน D มีโครงสร้างการบริหารที่บุคลากรต้องรับคำสั่งจากทั้งหัวหน้าฝ่ายบริหารวิชาการ และหัวหน้างานโครงการพิเศษ ทำให้เกิดความสับสนและเกี่ยงงานกัน โครงสร้างที่ทำให้เกิด 'นาย 2 คน' นี้คืออะไร?",
+                options: ["ก. Bureaucratic Structure", "ข. Matrix Structure", "ค. Divisional Structure", "ง. Organic Structure"],
+                ans: 1,
+                exp: "Matrix Structure คือการจัดองค์การแบบเมทริกซ์ที่มีสายบังคับบัญชา 2 สายตัดกัน (แนวดิ่งและแนวนอน) ทำให้บุคลากรมีนาย 2 คน"
+            },
+            {
+                q: "การจัดการศึกษาแบบมุ่งเน้นความต้องการของผู้เรียนและผู้ปกครองเป็นศูนย์กลาง สะท้อนถึงการผสมผสานระหว่างกรอบความคิด (Mindset) และเครื่องมือบริหารใด?",
+                options: ["ก. Service Mindset + TQM", "ข. Digital Mindset + Kaizen", "ค. Ethical Mindset + Theory X", "ง. Collaborative Mindset + Bureaucracy"],
+                ans: 0,
+                exp: "Service Mindset เน้นการให้บริการผู้เรียน/ผู้ปกครอง และ TQM เน้นความพึงพอใจของลูกค้าและคุณภาพทั่วองค์กร เป็นการจับคู่ที่สอดคล้องกันที่สุด"
+            }
+        ];
+
+        function switchTab(tabId) {
+            // Hide all sections
+            document.getElementById('section-summary').classList.add('hidden');
+            document.getElementById('section-analysis').classList.add('hidden');
+            document.getElementById('section-quiz').classList.add('hidden');
+            
+            // Reset all buttons styling
+            const btns = ['btn-summary', 'btn-analysis', 'btn-quiz'];
+            btns.forEach(id => {
+                const el = document.getElementById(id);
+                el.classList.remove('tab-active');
+                el.classList.add('tab-inactive');
+            });
+
+            // Show target section and highlight button
+            document.getElementById('section-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('tab-inactive');
+            activeBtn.classList.add('tab-active');
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = ''; // Clear container
+            
+            mcqData.forEach((item, index) => {
+                const qNum = index + 1;
+                let optionsHTML = '';
+                
+                item.options.forEach((opt, optIndex) => {
+                    optionsHTML += `
+                        <label class="block p-3 rounded-lg border border-gray-200 cursor-pointer hover:bg-purple-50 transition mb-2" id="label-q${index}-opt${optIndex}">
+                            <div class="flex items-start">
+                                <input type="radio" name="q${index}" value="${optIndex}" class="mt-1 mr-3 text-purple-600 focus:ring-purple-500">
+                                <span class="text-gray-700">${opt}</span>
+                            </div>
+                        </label>
+                    `;
+                });
+
+                const questionHTML = `
+                    <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm" id="question-card-${index}">
+                        <h4 class="font-bold text-gray-800 mb-4 text-lg"><span class="text-purple-600">ข้อที่ ${qNum}.</span> ${item.q}</h4>
+                        <div class="space-y-1">
+                            ${optionsHTML}
+                        </div>
+                        <div id="explanation-${index}" class="hidden mt-4 p-4 rounded-lg text-sm font-medium">
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += questionHTML;
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            let answered = 0;
+
+            mcqData.forEach((item, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const explanationDiv = document.getElementById(`explanation-${index}`);
+                
+                if (selected) {
+                    answered++;
+                    const selectedValue = parseInt(selected.value);
+                    const correctValue = item.ans;
+                    
+                    // Highlight selected label
+                    const selectedLabel = document.getElementById(`label-q${index}-opt${selectedValue}`);
+                    const correctLabel = document.getElementById(`label-q${index}-opt${correctValue}`);
+
+                    if (selectedValue === correctValue) {
+                        score++;
+                        selectedLabel.classList.add('correct-answer');
+                        explanationDiv.innerHTML = `✅ <strong>ถูกต้อง!</strong> ${item.exp}`;
+                        explanationDiv.classList.add('bg-green-100', 'text-green-800');
+                    } else {
+                        selectedLabel.classList.add('wrong-answer');
+                        correctLabel.classList.add('correct-answer'); // Show the real correct one
+                        explanationDiv.innerHTML = `❌ <strong>ตอบผิด!</strong> ${item.exp}`;
+                        explanationDiv.classList.add('bg-red-100', 'text-red-800');
+                    }
+                    explanationDiv.classList.remove('hidden');
+                }
+            });
+
+            if (answered < mcqData.length) {
+                alert(`คุณทำข้อสอบไปเพียง ${answered} ข้อ จากทั้งหมด ${mcqData.length} ข้อ กรุณาทำข้อที่เหลือเพื่อดูผลลัพธ์ที่แม่นยำ`);
+                // Scroll to first unanswered (basic implementation)
+                return;
+            }
+
+            // Show Score
+            document.getElementById('submit-quiz-container').classList.add('hidden');
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.classList.remove('hidden');
+            
+            // Animate score count
+            const scoreNumEl = document.getElementById('score-number');
+            const messageEl = document.getElementById('score-message');
+            scoreNumEl.innerText = score;
+
+            const percentage = (score / mcqData.length) * 100;
+            if (percentage >= 80) {
+                messageEl.innerText = "ยอดเยี่ยม! คุณเข้าใจทฤษฎีและการประยุกต์ใช้ได้ทะลุปรุโปร่ง พร้อมลุยสนามสอบ ป.โท แล้ว";
+                messageEl.className = "text-green-600 font-bold mt-2";
+            } else if (percentage >= 60) {
+                messageEl.innerText = "ดีมาก! แต่ยังมีบางจุดที่ต้องทบทวนอีกนิด โดยเฉพาะการแยกแยะระหว่างทฤษฎี";
+                messageEl.className = "text-yellow-600 font-bold mt-2";
+            } else {
+                messageEl.innerText = "พยายามเข้า! แนะนำให้อ่านสรุปและวิเคราะห์แนวข้อสอบในหน้าแรกอย่างละเอียดอีกครั้ง";
+                messageEl.className = "text-red-600 font-bold mt-2";
+            }
+            
+            // Scroll to score
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            document.getElementById('score-display').classList.add('hidden');
+            document.getElementById('submit-quiz-container').classList.remove('hidden');
+            renderQuiz();
+            window.scrollTo({ top: document.getElementById('section-quiz').offsetTop, behavior: 'smooth' });
+        }
+
+        function toggleEssayGuideline() {
+            const el = document.getElementById('essay-guideline');
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // Initialize quiz on load
+        window.onload = () => {
+            renderQuiz();
+        };
+
+    </script>
+</body>
+</html>
